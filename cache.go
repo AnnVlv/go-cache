@@ -14,8 +14,9 @@ func (c *Cache) Set(key string, value interface{}) {
 	c.data[key] = value
 }
 
-func (c *Cache) Get(key string) interface{} {
-	return c.data[key]
+func (c *Cache) Get(key string) (interface{}, bool) {
+	value, exists := c.data[key]
+	return value, exists
 }
 
 func (c *Cache) Delete(key string) {

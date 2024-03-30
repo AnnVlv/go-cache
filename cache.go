@@ -1,20 +1,20 @@
 package cache
 
 type Cache struct {
-	data map[string]int
+	data map[string]interface{}
 }
 
 func New() *Cache {
 	return &Cache{
-		data: make(map[string]int),
+		data: make(map[string]interface{}),
 	}
 }
 
-func (c *Cache) Set(key string, value int) {
+func (c *Cache) Set(key string, value interface{}) {
 	c.data[key] = value
 }
 
-func (c *Cache) Get(key string) int {
+func (c *Cache) Get(key string) interface{} {
 	return c.data[key]
 }
 
